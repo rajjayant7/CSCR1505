@@ -1,0 +1,41 @@
+#include <stdio.h>
+int Linear(int DATA[], int N, int ITEM)
+{
+    int k = 0, LOC = -1;
+    while (k < N)
+    {
+        if (ITEM == DATA[k])
+        {
+            LOC = k;
+            break;
+        }
+        k++;
+    }
+    return LOC;
+}
+
+int main()
+{
+    int N, ITEM, i, res;
+    printf("Enter number of Elements:- ");
+    scanf("%d", &N);
+    int DATA[N];
+    printf("Enter elements\n");
+    for (i = 0; i < N; i++)
+    {
+        scanf("%d", &DATA[i]);
+    }
+    printf("Enter item to search :- ");
+    scanf("%d", &ITEM);
+
+    res = Linear(DATA, N, ITEM);
+    if (res == -1)
+    {
+        printf("ITEM NOT FOUND");
+    }
+    else
+    {
+        printf("ITEM FOUND AT Location %d", res);
+    }
+    return 0;
+}
