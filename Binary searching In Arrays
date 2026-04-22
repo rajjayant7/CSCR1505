@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+int BINARY(int arr[], int N, int ITEM)
+{
+    int beg = 0, end = N - 1, mid;
+
+    while (beg <= end)
+    {
+        mid = (beg + end) / 2;
+
+        if (arr[mid] == ITEM)
+        {
+            return mid;
+        }
+        else if (ITEM < arr[mid])
+        {
+            end = mid - 1;
+        }
+        else
+        {
+            beg = mid + 1;
+        }
+    }
+
+    return -1;
+}
+
+int main()
+{
+    int n, item, i, res;
+
+    printf("Enter Number of elements:- ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    printf("Enter sorted elements:-\n");
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter item to search: ");
+    scanf("%d", &item);
+
+    res = BINARY(arr, n, item);
+
+    if (res != -1)
+        printf("Item found at index %d", res);
+    else
+        printf("Item not found");
+
+    return 0;
+}
